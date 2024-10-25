@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %} AmbientAr {% endblock title %}</title>
+
+
+{% block contenido %}
+
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1" ></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-6">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="{% static '/assets/img/IMG-01.webp' %}" alt="" style= "height:120%; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h2 class="h1 text-custom"><b>Innovación Tecnológica para la Educación Ambiental:</b></h2>
+                            <h3 class="h2">Realidad Virtual y Aumentada</h3>
+                            <p>
+                                La tecnología ha revolucionado todos los aspectos de la vida, y la educación no es la excepción.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row p-6">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="{% static '/assets/img/IMG-02.webp' %}" alt="" style= "height:120%; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left">
+                            <h1 class="h1"><b>Realidad Virtual en la Educación Ambiental</b></h1>
+                            <h3 class="h2">Desarrollo de Empatía Ambiental</h3>
+                            <p>
+                                La realidad virtual sumerge a los usuarios en mundos completamente digitales
+                                 donde pueden interactuar y experimentar escenarios complejos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row p-6">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="{% static '/assets/img/IMG-03.jpg' %}" alt="" style= "height:120%; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left">
+                            <h1 class="h1"><b>Realidad Aumentada en la Educacion Ambiental</b></h1>
+                            <h3 class="h2">Exploración Local y Global </h3>
+                            <p>
+                                Con <b>AmbientAr</b> los estudiantes pueden interactuar con datos ambientales directamente desde su entorno físico.
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+        <i class="fas fa-chevron-left"></i>
+    </a>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+        <i class="fas fa-chevron-right"></i>
+    </a>
+</div>
+
+<section class="bg-light">
+    <div class="container py-5">
+        <div class="row text-center py-4">
+            <div class="col-lg-8 m-auto">
+                <h2 class="h1">Innovación en Educación Ambiental</h2>
+                <p>
+                    En AmbientAr, ofrecemos talleres educativos que combinan la realidad virtual (RV) y la realidad aumentada (RA)
+                    para crear una nueva forma de conectar con la naturaleza, 
+                    fomentando el cuidado del medio ambiente de manera innovadora.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                        <img src=" {% static '/assets/img/taller 01.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                        </ul>
+                        <a class="h2 text-decoration-none text-dark">Talleres de Realidad Virtual para la Educacion Ambiental</a>
+                        <p class="card-text">
+                            ¡Aprende sobre biodiversidad, 
+                            cambio climático y conservación mientras exploras el mundo natural de una forma completamente nueva!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                        <img src= "  {% static '/assets/img/taller 02.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                        </ul>
+                        <a class="h2 text-decoration-none text-dark">Experiencias de Realidad Aumentada en Instituciones Educativas</a>
+                        <p class="card-text">
+                            A través de dispositivos móviles o tabletas, los estudiantes pueden visualizar en
+                             3D conceptos, como la evolución de un ecosistema o el ciclo del agua.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                        <img src="{% static '/assets/img/taller 03.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                        </ul>
+                        <a class="h2 text-decoration-none text-dark">Contenidos Personalizados en RA y RV</a>
+                        <p class="card-text">
+                            Ya sea que quieras realizar un recorrido virtual 
+                            o actividades de gamificación ambiental,
+                             trabajamos junto a ti para crear experiencias únicas que inspiren el aprendizaje .
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="col-12 col-md-6 mb-6 text-center my-5 bg-white" style="border-radius: 10px; padding: 20px; width: 80%; margin: 0 auto;">
+        <h2 class="h2">Mantenete al día con la información</h2>
+        <p>Visita nuestra página de noticias para estar al tanto de las últimas actualizaciones sobre educación ambiental.</p>
+        <a href="{% url 'apps.articulo:articulos' %}" class="btn btn-success">Ir a Noticias</a>
+    </div>
+</section>
+
+
+{% endblock %}
+    

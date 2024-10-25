@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+
+<title> {% block title %} Categorías {% endblock title %} </title>
+{% block contenido %}
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <h1 class="h1"><b>Categorías</b></h1>
+            <p>
+                <h6>Desde aquí podés ver las noticias según la categoría que desees. </h6>
+            </p>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container py-3">
+        <div class="row py-3">
+            {% for categoria in categorias %}
+            <div class="row py-5">
+                <h4 class="col text-center mt-2">{{ categoria.nombre | capfirst }}</h4>
+                <div class="text-center"> <!-- Alinea los botones en el centro -->
+                <div> <a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:articulos_por_categoria' pk=categoria.pk %}">Ingresá</a>
+                {% if user.is_superuser or request.user|has_group:"Colaborador"  %}
+                <a class="btn btn-secondary btn-lg w-100 mb-2" href="{% url 'apps.articulo:categoria_delete' pk=categoria.pk %}">Eliminar</a>
+                {% endif %}
+            {% empty %}  
+                <h3 class="text-center mt-3 mb-3">No hay categorías</h3>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

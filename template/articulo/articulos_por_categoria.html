@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<section class="container py-5 mb-5">
+
+    <!-- Columna derecha: Listado de artículos -->
+    <div class="col-12 col-md-12">
+        <div class="row g-3">
+            {% for articulo in articulos %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- Tarjeta con borde suave y esquinas redondeadas -->
+                <div class="card h-100 rounded-1 border shadow-sm">
+                    <!-- Contenedor para la imagen y el contenido central alineado a la izquierda -->
+                    <div class="card-body text-left">
+                        <!-- Imagen del artículo -->
+                        <a><img src="{{ articulo.imagen.url }}" class="rounded-1 img-fluid border mb-3"></a>
+                        <!-- Título del artículo (alineado a la izquierda) -->
+                        <h4 class="card-title">{{ articulo.titulo | capfirst }}</h4>
+                        <!-- Resumen del artículo (alineado a la izquierda) -->
+                        <p class="card-text">{{ articulo.resumen }}</p>
+                    </div>
+        
+                    <!-- Contenedor inferior: fecha de publicación y botón de "Leer más" -->
+                    <div class="card-footer text-left bg-white border-0">
+                        <!-- Fecha de publicación con ícono de calendario y tamaño más pequeño -->
+                        <h6 class="text-muted" style="font-size: small;">
+                            <i class="fas fa-calendar-alt"></i> {{ articulo.fecha_publicacion }}
+                        </h6>
+                        <!-- Botón de "Leer más" -->
+                        <a class="btn btn-success" href="{% url 'apps.articulo:articulo_detalle' articulo.id %}">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <li>No hay artículos disponibles</li>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

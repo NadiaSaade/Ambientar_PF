@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<title>{% block title %} Acerca de nosotros {% endblock title %}</title>
+
+
+{% block contenido %}
+
+<body> 
+    <div class="container-fluid bg-light py-5">
+        <div class="col-md-6 m-auto text-center">
+            <h1 class="h1">Acerca de Nosotros</h1>
+            <p><strong>AmbientAr</strong> es una organización comprometida 
+            en conectar experiencias tecnológicas con instituciones educativas.
+            Es un viaje hacia el corazón de la innovación tecnológica.</p>
+        </div>
+    </div>
+    <section class="container py-5">
+        <div class="container-fluid bg-white py-4">
+            <div class="col-md-10 m-auto text-left">            
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6 text-md-right text-center">
+                        <img src="{% static '/assets/img/image0.jpg' %}" alt="Descripción de la imagen" class="img-fluid" style="height: 280px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-6">
+                        <h2><strong>Técnologia en Educación Ambiental</strong></h2>
+                        <p>AmbientAR es un viaje hacia el corazón de la innovación tecnológica. Fundado por un equipo de entusiastas en presentar las maravillas del mundo tecnológico de una manera accesible y atractiva.</p>
+                    </div>
+                    
+                </div>
+    
+                <hr class="my-4" style="border: 1px solid #e0e0e0;">
+    
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6 order-md-2 text-center">
+                        <img src="{% static '/assets/img/image1.jpg' %}" alt="Descripción de la imagen" class="img-fluid" style="height: 280px; border-radius: 50%; object-fit: cover; float:right">
+                    </div>
+                    <div class="col-md-6">
+                        <h2><strong>Nuestra Visión</strong></h2>
+                        <p>En <strong>AmbientAR</strong>, creemos firmemente que la tecnología es la fuerza motriz que está modelando nuestro futuro. Nuestra visión es ser la principal fuente de información y análisis sobre tecnologías emergentes como la Inteligencia Artificial, Robótica, 5G, y el Internet de las Cosas (IoT). Queremos empoderar a nuestros lectores con conocimientos que les permitan no solo comprender, sino también participar activamente en la conversación tecnológica global.</p>
+                    </div>
+                </div>
+    
+                <hr class="my-4" style="border: 1px solid #e0e0e0;">
+    
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6 text-md-right text-center">
+                        <img src="{% static '/assets/img/image2.jpg' %}" alt="Descripción de la imagen" class="img-fluid" style="height: 280px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-6">
+                        <h2><strong>Nuestro Equipo</strong></h2>
+                        <p>Nuestro equipo está compuesto por profesionales apasionados, desde ingenieros y desarrolladores hasta periodistas tecnológicos y analistas de tendencias. Cada miembro aporta una perspectiva única, enriqueciendo nuestro contenido con diversas experiencias y conocimientos especializados. Estamos unidos por nuestro amor común por la tecnología y nuestro deseo de compartir ese entusiasmo con el mundo.</p>
+                    </div>
+                </div>
+    
+                <hr class="my-4" style="border: 1px solid #e0e0e0;">
+    
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6 order-md-2 text-center">
+                        <img src="{% static '/assets/img/image3.jpg' %}" alt="Descripción de la imagen" class="img-fluid" style="height: 280px; border-radius: 50%; object-fit: cover; float:right">
+                    </div>
+                    <div class="col-md-6">
+                        <h2><strong>Nuestro Compromiso</strong></h2>
+                        <p>Nos comprometemos a ofrecer contenido de alta calidad, actualizado y relevante. Desde artículos detallados y análisis profundos hasta las últimas noticias y tendencias, nuestro objetivo es mantener a nuestros lectores informados y comprometidos. En <strong>AmbientAR</strong>, la tecnología no es solo una noticia; es una narrativa en constante evolución que tiene el poder de transformar nuestras vidas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+{% endblock %}

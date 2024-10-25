@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+
+<title> {% block title %} Noticias {% endblock title %} </title>
+{% block contenido %}
+
+<!-- Estilo personalizado para la línea divisoria -->
+<style>
+    .divider-line {
+        border-right: 1px solid #e0e0e0; /* Línea divisoria suave */
+        padding-right: 20px;
+    }
+</style>
+
+<div class="container-fluid bg-light py-5">
+    <div class="col-md-6 m-auto text-center">
+        <h1 class="h1">Noticias</h1>
+        <p>Explora nuestra colección de artículos informativos y útiles. Ordena según tus preferencias.</p>
+    </div>
+</div>
+
+<section class="container py-5">    
+
+    <!-- Contenedor inferior: Filtros a la izquierda y listado de artículos a la derecha -->
+    <div class="row">
+        <!-- Columna izquierda: Filtros -->
+        <div class="col-12 col-md-3 divider-line">
+            <h4>Ordenar por:</h4>
+            <ul class="list-unstyled">
+                <li><a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:articulos' %}?orden=reciente">Más reciente</a></li>
+                <li><a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:articulos' %}?orden=antiguo">Más antiguo</a></li>
+                <li><a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:articulos' %}?orden=alfabetico">Orden alfabético</a></li>
+                <li><a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:categoria_lista' %}">Listar todas las categorias</a></li>
+            </ul>
+            
+            {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+            <div class="d-grid gap-1">
+                <a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:articulo_crear' %}">Crear una noticia</a>
+                <a class="btn btn-success btn-lg w-100 mb-2" href="{% url 'apps.articulo:crear_categoria' %}">Crear nueva categoría</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Columna derecha: Listado de artículos -->
+        <div class="col-12 col-md-9">
+            <div class="row g-3">
+                {% for articulo in articulos %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Tarjeta con borde suave y esquinas redondeadas -->
+                    <div class="card h-100 rounded-1 border shadow-sm">
+                        <!-- Contenedor para la imagen y el contenido central alineado a la izquierda -->
+                        <div class="card-body text-left">
+                            <!-- Imagen del artículo -->
+                            <a><img src="{{ articulo.imagen.url }}" class="rounded-1 img-fluid border mb-3"></a>
+                            <!-- Título del artículo (alineado a la izquierda) -->
+                            <h4 class="card-title">{{ articulo.titulo | capfirst }}</h4>
+                            <!-- Resumen del artículo (alineado a la izquierda) -->
+                            <p class="card-text">{{ articulo.resumen }}</p>
+                        </div>
+            
+                        <!-- Contenedor inferior: fecha de publicación y botón de "Leer más" -->
+                        <div class="card-footer text-left bg-white border-0">
+                            <!-- Fecha de publicación con ícono de calendario y tamaño más pequeño -->
+                            <h6 class="text-muted" style="font-size: small;">
+                                <i class="fas fa-calendar-alt"></i> {{ articulo.fecha_publicacion }}
+                            </h6>
+                            <!-- Botón de "Leer más" -->
+                            <a class="btn btn-success" href="{% url 'apps.articulo:articulo_detalle' articulo.id %}">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <li>No hay artículos disponibles</li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
